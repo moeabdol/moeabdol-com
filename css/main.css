@@ -95,12 +95,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 .switherHead { height: 5px; }
+
 #header { margin-bottom: 10px; }
 #header .social_links { margin-right: 60px; }
 #header .social_links li a { text-decoration: none; }
 #header .social_links li a i { color: #3b3b3b; }
 #header .social_links li a i:hover { color: #e5e5e5; }
-
 
 
 
