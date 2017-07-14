@@ -124,15 +124,27 @@ jQuery(document).ready(function(){
 			var user_email = jQuery(".sc_contact_form #sc_contact_form_email").val();
 			var user_site = jQuery(".sc_contact_form #sc_contact_form_site").val();
 			var user_msg = jQuery(".sc_contact_form #sc_contact_form_message").val();
-			var data = {
-				action: "submit_contact_form",
-				nonce: "e1f9461bc9",
-				user_name: user_name,
-				user_email: user_email,
-				user_site: user_site,
-				user_msg: user_msg
-			};
-			jQuery.post("include/sendmail.php", data, userSubmitFormResponse, "text");
+			// var data = {
+			// 	action: "submit_contact_form",
+			// 	nonce: "e1f9461bc9",
+			// 	user_name: user_name,
+			// 	user_email: user_email,
+			// 	user_site: user_site,
+			// 	user_msg: user_msg
+			// };
+			// jQuery.post("include/sendmail.php", data, userSubmitFormResponse, "text");
+      emailjs.send("mohd_a_saed_gmail_com", "basic_email_template", {
+        user_name: user_name,
+        user_email: user_email,
+        user_msg: user_msg
+      });
+
+      jQuery(".sc_contact_form .result")
+        .toggleClass("sc_infobox_style_error", false)
+        .toggleClass("sc_infobox_style_success", false);
+			jQuery(".sc_contact_form .result").addClass("sc_infobox_style_success").html("Your message was sent!");
+			setTimeout("jQuery('.sc_contact_form .result').fadeOut(); jQuery('.sc_contact_form form').get(0).reset();", 3000);
+      jQuery(".sc_contact_form .result").fadeIn();
 		}
 	}
 	
